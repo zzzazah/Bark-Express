@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.barkexpress'
+version = '0.1.0-day1'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    jmeVersion = '3.9.0-stable'
+}
+
+dependencies {
+    implementation "org.jmonkeyengine:jme3-core:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-desktop:${jmeVersion}"
+    implementation "org.jmonkeyengine:jme3-lwjgl3:${jmeVersion}"
+}
+
+application {
+    mainClass = 'com.barkexpress.app.BarkExpressApp'
+    applicationDefaultJvmArgs = [
+        '-Xms256m',
+        '-Xmx1024m'
+    ]
+}
